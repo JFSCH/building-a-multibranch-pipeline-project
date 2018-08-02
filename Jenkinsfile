@@ -10,7 +10,7 @@ node {
     }
 
     stage('Docker push') {
-        docker.withRegistry( $AWS_LOC, $AWS_CRED) {
+        docker.withRegistry( ${env.AWS_LOC}, ${env.AWS_CRED}) {
             docker.image('defra-test-1').push('latest')
         }
     }
